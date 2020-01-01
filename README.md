@@ -4,19 +4,23 @@ Improving Environmental Transparency and Enforcement using Ethereum Blockchain
 Manraj Jawanda
 
 Introduction
+
 Strong legislation currently exists to regulate environmental violations by industrial plants and manufacturing sites. However public transparency and enforcement for offenders is slow and inefficient due to manual processes and environmental data being recorded inside multiple databases. 
 EnviroReg (ENVR) helps solve this problem by deploying environmental data to the Ethereum blockchain not only making it publicly transparent but also eliminating much of the manual data entry that is required. 
 ENVR uses Ethereum smart contracts to manage environmental agreements between companies and regulators. The contract(s) are designed to retrieve environmental data on the blockchain and automatically penalize offenders that either do not submit records or submit data that is in violation of the agreement.
 
 What is the problem?
+
 Environment Canada has acknowledged, “It is not good enough to adopt laws; legislation must be effectively enforced.” 
 Environmental enforcement has seen a consistent decline even though there has been an increase in the number of enforcement officers. Below are some of the reasons why:
+
   Legal obligations to release reports are not being met in a timely manner. 
   Fines have been so low that their use is no longer effective.
   Information about environmental offenders such as the exact location and nature of the violation is limited. 
   The commissioner of Environment and sustainable development audited environmental enforcement and concluded that public     disclosure of enforcement information is required.
 
 What is the solution?
+
 Enforcement ensures violators get punished and those are compliant are rewarded. Effective enforcement is fast and transparent. ENVR uses Ethereum smart contracts which will receive environmental data submitted by companies and automatically enforce penalties by fining offenders in cryptocurrency. These violations will be published to the Ethereum blockchain and therefore be permanent and available for the public to view.
 
 A proof of concept was developed that focused on drinking water environmental records. Truffle was used to design the front-end interface. A local blockchain was run using Ganache for development and MetaMask was used to manage the ether and submit transactions. 
@@ -43,6 +47,7 @@ Third-party labs
   Have a balance to hold cryptoasset.
 
 A struct type called report is created which contains all the variables associated with an environmental report:
+
 struct report {
 uint pH
 uint hardness
@@ -51,9 +56,16 @@ address sender (company address)
 bool signed (is the report verified by company)
 bool latest (is this the latest report for the company)
 }
+
+
 A mapping is used to map a uint to the report variables which is called reportStruct. 
+
 mapping (uint 🡪 report) reportStruct
-This maps a uint to each variable inside the struct we called report. We will use the variable reportID to identify each environmental report per company address.
+
+This maps a uint to each variable inside the struct we called report. 
+
+We will use the variable reportID to identify each environmental report per company address.
+
 reportStruct
 uint
 report
