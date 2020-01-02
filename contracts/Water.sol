@@ -1,15 +1,7 @@
 pragma solidity >=0.4.22 <0.6.0;
 
-contract Aion {
-    uint256 public serviceFee;
-    function ScheduleCall(uint256 blocknumber, address to, uint256 value, uint256 gaslimit, uint256 gasprice, bytes memory data, bool schedType) public payable returns (uint,address);
-
-}
-
-
 contract Water {
 
-Aion aion;
 
 address private admin;
 
@@ -161,13 +153,7 @@ constructor () public {
         return (reportID);
     }
     
-    function scheduleMyfucntion() public {
-        aion = Aion(0xFcFB45679539667f7ed55FA59A15c8Cad73d9a4E);
-        bytes memory data = abi.encodeWithSelector(bytes4(keccak256('myfucntion()')));
-        uint callCost = 200000*1e9 + aion.serviceFee();
-        aion.ScheduleCall.value(callCost)( block.timestamp + 10 minutes, address(this), 0, 200000, 1e9, data, true);
-    }
-    
+
 
     function getLastReport () public payable returns (uint ph, uint hardness, uint TDS, bool sign) {
         for (uint i=0; i < reportID; i++) {
@@ -217,7 +203,6 @@ constructor () public {
     
     }    
 
-    function () external payable {}
 
 
 }
