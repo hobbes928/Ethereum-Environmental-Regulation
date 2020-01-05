@@ -148,6 +148,7 @@ constructor () public {
         reportStruct[reportID].sender = _companyAddress;
         reportStruct[reportID].latest = true;
         reportStruct[reportID].sign = false;
+        reportStruct[reportID].penaltycheck = false;
         
         reportID += 1;
         return (reportID);
