@@ -163,33 +163,10 @@ constructor () public {
             }
             
         } 
-        scheduleMyfucntion();    
+
     }
 
-    function getReports () public view returns (uint[10] memory pH, uint[10] memory hardness, uint[10] memory TDS, bool[10] memory Latest, bool[10] memory Sign) {
-        uint arrayID;
-        uint[10] memory arraypH;
-        uint[10] memory arrayHardness;
-        uint[10] memory arrayTDS;
-        bool[10] memory arrayLatest;
-        bool[10] memory arraySign;
-        
-        uint i=0;
-        while (i < reportID) {
-            if (reportStruct[i].sender == msg.sender) {
-                arraypH[arrayID] = reportStruct[i].pH;
-                arrayHardness[arrayID] = reportStruct[i].hardness;
-                arrayTDS[arrayID] = reportStruct[i].TDS;
-                arrayLatest[arrayID] = reportStruct[i].latest;
-                arraySign[arrayID] = reportStruct[i].sign;
-                arrayID++;
-            }
-               i++;
-        }
-        
-        return (arraypH, arrayHardness, arrayTDS, arrayLatest, arraySign);
-        
-    }
+
     
     function SignReport () public returns (uint pH, uint hardness, uint TDS, bool latest, bool sign) {
         for (uint i=0; i < reportID; i++) {
