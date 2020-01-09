@@ -124,7 +124,7 @@ constructor () public {
     
     uint reportID;
     
-    function SubmitReport (uint _pH, uint _hardness, uint _TDS, address _companyAddress) public returns (uint) {
+    function SubmitReport (uint _pH, uint _hardness, uint _TDS, address _companyAddress) public OnlyLab returns (uint) {
         
         //find the latest report and if it is not signed revert state
         for (uint i=0; i < reportID; i++) {
@@ -169,7 +169,7 @@ constructor () public {
 
 
     
-    function SignReport () public returns (uint pH, uint hardness, uint TDS, bool latest, bool sign) {
+    function SignReport () public OnlyCompany returns (uint pH, uint hardness, uint TDS, bool latest, bool sign) {
         for (uint i=0; i < reportID; i++) {
             if(reportStruct[i].sender == msg.sender && reportStruct[i].latest == true) {
                 reportStruct[i].sign = true;
