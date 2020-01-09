@@ -17,6 +17,7 @@ struct report {
     address sender;
     bool latest;
     bool sign;
+    bool passed;
 }
 
 struct CompanyProp {
